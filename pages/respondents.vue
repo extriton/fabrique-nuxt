@@ -48,6 +48,8 @@
 import MainNavbar from '~/components/MainNavbar.vue'
 import Condition from '~/components/Condition.vue'
 
+// import axios from 'axios'
+
 export default {
   components: {
     MainNavbar,
@@ -65,8 +67,16 @@ export default {
     deleteCondition (data) {
       this.conditions.splice(data.index, 1)
     },
-    onTest () {
-      console.log('Test')
+    async onTest () {
+      /*
+      if (this.condition.length === 0) return
+
+      try {
+        const result = await axios.post('http://localhost:3000/test', this.condition)
+      } catch (e) {
+        console.log('Error: ' + e)
+      }
+      */
     }
   }
 }
@@ -103,13 +113,11 @@ export default {
     padding: 20px;
     background-color: #aaa;
     .left-column {
-      display: inline-block;
       width: 50%;
+      float: left;
       text-align: left;
     }
     .right-column {
-      display: inline-block;
-      width: 50%;
       text-align: right;
     }
   }
